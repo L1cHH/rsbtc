@@ -15,7 +15,27 @@ impl Blockchain {
 }
 
 
-pub struct Block;
+pub struct Block {
+    header: BlockHeader,
+    transactions: Vec<Transaction>
+}
+
+impl Block {
+    pub fn new(
+        header: BlockHeader,
+        transactions: Vec<Transaction>
+    ) -> Self {
+        Block {
+            header,
+            transactions
+        }
+    }
+
+    pub fn hash(&self) -> ! {
+        unimplemented!()
+    }
+}
+
 pub struct BlockHeader;
 pub struct Transaction;
 
