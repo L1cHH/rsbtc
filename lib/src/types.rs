@@ -79,6 +79,18 @@ pub struct Transaction {
     outputs: Vec<TransactionOutput>
 }
 
+impl Transaction {
+    pub fn new(
+        inputs: Vec<TransactionInput>,
+        outputs: Vec<TransactionOutput>
+    ) -> Transaction {
+        Transaction {
+            inputs,
+            outputs
+        }
+    }
+}
+
 pub struct TransactionInput {
     pub prev_transaction_output_hash: [u8; 32],
     pub signature: [u8; 64]
