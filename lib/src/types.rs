@@ -1,4 +1,5 @@
 use uuid::Uuid;
+use chrono::{DateTime, Utc};
 use crate::U256;
 
 pub struct Blockchain {
@@ -41,7 +42,7 @@ impl Block {
 
 pub struct BlockHeader {
     ///Timestamp of the block
-    pub timestamp: u64,
+    pub timestamp: DateTime<Utc>,
     ///Nonce used to mine the block
     pub nonce: u64,
     ///Hash of the previous block
@@ -54,7 +55,7 @@ pub struct BlockHeader {
 
 impl BlockHeader {
     pub fn new(
-        timestamp: u64,
+        timestamp: DateTime<Utc>,
         nonce: u64,
         prev_block_hash: [u8; 32],
         merkle_root: [u8; 32],
@@ -89,15 +90,27 @@ impl Transaction {
             outputs
         }
     }
+
+    pub fn hash(&self) -> ! {
+        unimplemented!()
+    }
 }
 
+///What exact output should be spent
 pub struct TransactionInput {
+    ///Points to exact UTXO (unspent output) {Tx hash and index of exact output}
     pub prev_transaction_output_hash: [u8; 32],
+    ///Signature is used for verifying accessory to specific output (ability to spend)
     pub signature: [u8; 64]
 }
+
+///How much and for whom exact output should be spent
 pub struct TransactionOutput {
+    ///How much currency
     pub value: u64,
+    ///ID of specific output (index)
     pub unique_id: Uuid,
+    ///Pubkey of recipient
     pub pubkey: [u8; 33]
 }
 
