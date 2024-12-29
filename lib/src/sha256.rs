@@ -5,7 +5,7 @@ use std::fmt;
 use std::fmt::{Display, Formatter};
 
 
-#[derive(Serialize, Clone, Copy, PartialEq, Eq, Debug, Deserialize)]
+#[derive(Serialize, Clone, Copy, PartialEq, Eq, Debug, Deserialize, Hash)]
 pub struct Hash(U256);
 
 impl Hash {
@@ -27,11 +27,20 @@ impl Hash {
         let hash_bytes = hex::decode(hash).unwrap();
         let hash_slice = hash_bytes.as_slice();
 
-        Hash(U256::from_big_endian(hash_slice))
+        Hash(U256::from_little_endian(hash_slice))
     }
 
     pub fn matches_target(&self, target: U256) -> bool {
         self.0 <= target
+    }
+
+    pub fn zero() -> Self {
+        Hash(U256::zero())
+    }
+
+    pub fn as_bytes(&self) -> [u8; 32] {
+        let mut bytes: Vec<u8> = vec![0; 32];
+        self.0.to_little_endian()
     }
 }
 

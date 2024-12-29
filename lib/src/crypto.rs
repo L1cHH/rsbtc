@@ -13,6 +13,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize, Clone)]
 pub struct Signature(ECDSASignature<Secp256k1>);
 
+
 impl Debug for Signature {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
         write!(f, "ecdsa::Signature<{:?}>(", Secp256k1::default())?;
