@@ -1,10 +1,11 @@
 use crate::U256;
 use sha256::digest;
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use std::fmt;
-use std::fmt::{Display, Formatter, write};
+use std::fmt::{Display, Formatter};
 
-#[derive(Serialize, Clone, Copy)]
+
+#[derive(Serialize, Clone, Copy, PartialEq, Eq, Debug, Deserialize)]
 pub struct Hash(U256);
 
 impl Hash {

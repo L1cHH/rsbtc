@@ -1,7 +1,10 @@
 use uuid::Uuid;
 use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 use crate::U256;
+use crate::crypto::{Signature, PublicKey};
 
+#[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct Blockchain {
     blocks: Vec<Block>
 }
@@ -18,7 +21,7 @@ impl Blockchain {
     }
 }
 
-
+#[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct Block {
     header: BlockHeader,
     transactions: Vec<Transaction>
@@ -40,6 +43,7 @@ impl Block {
     }
 }
 
+#[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct BlockHeader {
     ///Timestamp of the block
     pub timestamp: DateTime<Utc>,
@@ -75,6 +79,7 @@ impl BlockHeader {
     }
 }
 
+#[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct Transaction {
     inputs: Vec<TransactionInput>,
     outputs: Vec<TransactionOutput>
@@ -96,14 +101,16 @@ impl Transaction {
     }
 }
 
+#[derive(Serialize, Deserialize, Clone, Debug)]
 ///What exact output should be spent
 pub struct TransactionInput {
     ///Points to exact UTXO (unspent output) {Tx hash and index of exact output}
     pub prev_transaction_output_hash: [u8; 32],
     ///Signature is used for verifying accessory to specific output (ability to spend)
-    pub signature: [u8; 64]
+    pub signature: Signature
 }
 
+#[derive(Serialize, Deserialize, Clone, Debug)]
 ///How much and for whom exact output should be spent
 pub struct TransactionOutput {
     ///How much currency
@@ -111,6 +118,6 @@ pub struct TransactionOutput {
     ///ID of specific output (index)
     pub unique_id: Uuid,
     ///Pubkey of recipient
-    pub pubkey: [u8; 33]
+    pub pubkey: PublicKey
 }
 
