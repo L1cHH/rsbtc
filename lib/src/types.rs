@@ -209,6 +209,68 @@ impl Block {
         Ok(())
 
     }
+
+    pub fn calculate_miner_fees(
+        &self,
+        utxos: &HashMap<Hash, TransactionOutput>
+    ) -> Result<u64> {
+        let mut inputs: HashMap<Hash, TransactionOutput> = HashMap::new();
+        let mut outputs: HashMap<Hash, TransactionOutput> = HashMap::new();
+
+        for transaction in self.transactions.iter().skip(1) {
+
+            for input in &transaction.inputs {
+
+                let prev_output = utxos.get(
+                    &input.prev_transaction_output_hash
+                );
+
+                if prev_output.is_none() {
+                    return Err(BtcError::InvalidTransaction)
+                };
+
+                let prev_output = prev_output.unwrap();
+
+                if inputs.contains_key(
+                    &input.prev_transaction_output_hash
+                ) {
+                    return Err(BtcError::InvalidTransaction)
+                }
+
+                inputs.insert(
+                    input.prev_transaction_output_hash,
+                    prev_output.clone()
+                );
+            }
+
+            for output in &transaction.outputs {
+
+                let output_hash = output.hash();
+
+                if outputs.contains_key(&output_hash) {
+                    return Err(BtcError::InvalidTransaction)
+                }
+
+                outputs.insert(
+                    output_hash,
+                    output.clone()
+                );
+
+            }
+        }
+
+        let inputs_value: u64 = inputs
+            .values()
+            .map(|output| output.value)
+            .sum();
+
+        let outputs_value: u64 = outputs
+            .values()
+            .map(|output| output.value)
+            .sum();
+
+        Ok(inputs_value - outputs_value)
+    }
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
