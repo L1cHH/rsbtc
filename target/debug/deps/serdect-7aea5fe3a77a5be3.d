@@ -1,0 +1,10 @@
+C:\Users\Karateev Kirill\RustroverProjects\rsbtc\target\debug\deps\libserdect-7aea5fe3a77a5be3.rmeta: C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serdect-0.2.0\src\lib.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serdect-0.2.0\src\array.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serdect-0.2.0\src\slice.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serdect-0.2.0\src\../README.md
+
+C:\Users\Karateev Kirill\RustroverProjects\rsbtc\target\debug\deps\libserdect-7aea5fe3a77a5be3.rlib: C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serdect-0.2.0\src\lib.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serdect-0.2.0\src\array.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serdect-0.2.0\src\slice.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serdect-0.2.0\src\../README.md
+
+C:\Users\Karateev Kirill\RustroverProjects\rsbtc\target\debug\deps\serdect-7aea5fe3a77a5be3.d: C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serdect-0.2.0\src\lib.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serdect-0.2.0\src\array.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serdect-0.2.0\src\slice.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serdect-0.2.0\src\../README.md
+
+C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serdect-0.2.0\src\lib.rs:
+C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serdect-0.2.0\src\array.rs:
+C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serdect-0.2.0\src\slice.rs:
+C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serdect-0.2.0\src\../README.md:

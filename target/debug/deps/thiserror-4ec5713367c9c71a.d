@@ -1,0 +1,10 @@
+C:\Users\Karateev Kirill\RustroverProjects\rsbtc\target\debug\deps\libthiserror-4ec5713367c9c71a.rmeta: C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-2.0.9\src/lib.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-2.0.9\src\aserror.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-2.0.9\src\display.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-2.0.9\src\var.rs
+
+C:\Users\Karateev Kirill\RustroverProjects\rsbtc\target\debug\deps\libthiserror-4ec5713367c9c71a.rlib: C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-2.0.9\src/lib.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-2.0.9\src\aserror.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-2.0.9\src\display.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-2.0.9\src\var.rs
+
+C:\Users\Karateev Kirill\RustroverProjects\rsbtc\target\debug\deps\thiserror-4ec5713367c9c71a.d: C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-2.0.9\src/lib.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-2.0.9\src\aserror.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-2.0.9\src\display.rs C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-2.0.9\src\var.rs
+
+C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-2.0.9\src/lib.rs:
+C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-2.0.9\src\aserror.rs:
+C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-2.0.9\src\display.rs:
+C:\Users\Karateev\ Kirill\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-2.0.9\src\var.rs:

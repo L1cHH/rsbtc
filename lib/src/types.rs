@@ -80,7 +80,7 @@ impl Blockchain {
 
                 for output in &transaction.outputs {
                     self.utxos.insert(
-                        transaction.hash(),
+                        output.hash(),
                         output.clone()
                     );
                 }
@@ -110,7 +110,7 @@ impl Block {
         Hash::hash(self)
     }
 
-    pub fn verify_transactions(&self, utxos: &HashMap<Hash, TransactionOutput>) -> Result<()> {
+    pub fn verify_transactions(&self, predicted_block_height: u64, utxos: &HashMap<Hash, TransactionOutput>) -> Result<()> {
 
         let mut inputs: HashMap<Hash, TransactionOutput> = HashMap::new();
 
@@ -118,7 +118,13 @@ impl Block {
             return Err(BtcError::InvalidBlock)
         }
 
-        for transaction in &self.transactions {
+        // verify coinbase transaction
+        self.verify_coinbase_transaction(
+            predicted_block_height,
+            utxos
+        )?;
+
+        for transaction in self.transactions.iter().skip(1) {
             let mut input_value = 0;
             let mut output_value = 0;
 
@@ -163,6 +169,45 @@ impl Block {
         }
 
         Ok(())
+    }
+
+    pub fn verify_coinbase_transaction(
+        &self,
+        predicted_block_height: u64,
+        utxos: &HashMap<Hash, TransactionOutput>
+    ) -> Result<()> {
+        let coinbase_tx = &self.transactions[0];
+
+        if coinbase_tx.inputs.len() != 0 {
+            return Err(BtcError::InvalidTransaction)
+        }
+
+        if coinbase_tx.outputs.len() == 0 {
+            return Err(BtcError::InvalidTransaction)
+        }
+
+        let miner_fees = self.calculate_miner_fees(utxos)?;
+
+        let block_reward = crate::INITIAL_REWARD
+            * 10u64.pow(8)
+            / 2u64.pow(
+            (predicted_block_height
+                / crate::HALVING_INTERVAL)
+                as u32,
+        );
+
+        let total_coinbase_outputs: u64 = coinbase_tx
+            .outputs
+            .iter()
+            .map(|output| output.value)
+            .sum();
+
+        if total_coinbase_outputs != block_reward + miner_fees {
+            return Err(BtcError::InvalidTransaction)
+        }
+
+        Ok(())
+
     }
 }
 
